@@ -1,12 +1,12 @@
 import { Image, ScrollView, StatusBar, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Link } from "expo-router";
+import { Redirect, router } from "expo-router";
 import { images } from "../constants";
+import CustomButton from "@/components/CustomButton";
 
 const Home = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
-      <StatusBar barStyle={"light-content"} />
       <ScrollView contentContainerStyle={{ height: "100%" }}>
         <View className="w-full h-full flex items-center justify-center px-4">
           <Image
@@ -20,8 +20,34 @@ const Home = () => {
             className="max-w-[380px] w-full h-[300px]"
             resizeMode={"contain"}
           />
+
+          <View className="relative mt-5 mx-14">
+            <Text className="text-3xl text-white font-bold text-center">
+              Discover Endless Possibilities with{" "}
+              <Text className="text-secondary-200">Aora!</Text>
+            </Text>
+
+            <Image
+              source={images.path}
+              className="absolute w-[94px] h-[15px] -bottom-3.5 -right-5"
+              resizeMode={"contain"}
+            />
+          </View>
+
+          <Text className="font-pregular text-gray-100 mt-7 text-center">
+            Where Creativity Meets Innovation: Embark On a Journey of Limitless
+            Possiblities with Aora
+          </Text>
+
+          <CustomButton
+            title={"Continue with Email"}
+            handlePress={() => router.push("/sign-in")}
+            containerStyles={"w-full mt-10"}
+          />
         </View>
       </ScrollView>
+
+      <StatusBar backgroundColor={"#161622"} barStyle={"light-content"} />
     </SafeAreaView>
   );
 };
