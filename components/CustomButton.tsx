@@ -1,6 +1,5 @@
 import { TouchableOpacity, Text } from "react-native";
 
-// @ts-ignore
 const CustomButton = ({
   title,
   handlePress,
