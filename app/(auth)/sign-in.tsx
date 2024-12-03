@@ -32,7 +32,6 @@ const SignIn = () => {
       setIsLoggedIn(true);
 
       // Redirect user to home screen
-      Alert.alert("Success", "Logged in successfully");
       router.replace("/home");
     } catch (e: any) {
       Alert.alert("Error", e.message);

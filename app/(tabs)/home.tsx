@@ -8,10 +8,12 @@ import { images } from "../../constants";
 import { getAllPosts, getTrendingPosts } from "@/lib/appwrite";
 import useAppwriteHook from "@/lib/appwrite.hook";
 import VideoCard from "@/components/VideoCard";
+import { useGlobalContext } from "@/context/GlobalProvider";
 
 const Home = () => {
   const { data: posts, refetch } = useAppwriteHook(getAllPosts);
   const { data: trendingPosts } = useAppwriteHook(getTrendingPosts);
+  const { user } = useGlobalContext();
 
   const [refreshing, setRefreshing] = useState(false);
 
@@ -35,7 +37,7 @@ const Home = () => {
                   Hey, Welcome!
                 </Text>
                 <Text className={"text-2xl text-white font-pmedium"}>
-                  Arthur
+                  {user?.username}
                 </Text>
               </View>
               <View>

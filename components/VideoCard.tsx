@@ -26,7 +26,7 @@ const VideoCard = ({
           >
             <Image
               source={{ uri: avatar }}
-              className={"w-full h-full rounded-lg"}
+              className={"w-full h-full rounded"}
               resizeMode={"cover"}
             />
           </View>
