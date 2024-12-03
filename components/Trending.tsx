@@ -6,7 +6,6 @@ import {
 } from "react-native";
 import * as Animatable from "react-native-animatable";
 import { useState } from "react";
-import { ResizeMode, Video } from "expo-av";
 import { useVideoPlayer, VideoView } from "expo-video";
 import { icons } from "@/constants";
 
@@ -33,10 +32,9 @@ const zoomOut = {
 // Description: Trending item component
 const TrendingItem = ({ activeItem, item }) => {
   const [play, setPlay] = useState(false);
-  console.log("========>", item.video);
 
   const player = useVideoPlayer(item.video, (player) => {
-    player.play();
+    // player.play();
   });
 
   return (
@@ -47,31 +45,27 @@ const TrendingItem = ({ activeItem, item }) => {
       useNativeDriver={true}
     >
       {play ? (
-        // <Video
-        //   source={{ uri: item.video }}
-        //   className={"w-52 h-72 rounded-3xl mt-3 bg-white/10"}
-        //   resizeMode={ResizeMode.CONTAIN}
-        //   useNativeControls={true}
-        //   shouldPlay={true}
-        //   onPlaybackStatusUpdate={(status) => {
-        //     if (status.didJustFinish) {
-        //       setPlay(false);
-        //     }
-        //   }}
-        // />
-
         <VideoView
           player={player}
-          className={"w-52 h-72 rounded-3xl mt-3 bg-white/10"}
           allowsFullscreen={true}
           allowsPictureInPicture={false}
           nativeControls={true}
+          contentFit={"cover"}
+          style={{
+            width: 180,
+            height: 280,
+            borderRadius: 24,
+            marginTop: 12,
+          }}
         />
       ) : (
         <TouchableOpacity
           className={"relative flex justify-center items-center"}
           activeOpacity={0.7}
-          onPress={() => setPlay(true)}
+          onPress={() => {
+            setPlay(true);
+            player.play();
+          }}
         >
           <ImageBackground
             source={{ uri: item.thumbnail }}
