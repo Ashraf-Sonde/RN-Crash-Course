@@ -33,9 +33,7 @@ const zoomOut = {
 const TrendingItem = ({ activeItem, item }) => {
   const [play, setPlay] = useState(false);
 
-  const player = useVideoPlayer(item.video, (player) => {
-    // player.play();
-  });
+  const player = useVideoPlayer(item.video, (player) => {});
 
   return (
     <Animatable.View

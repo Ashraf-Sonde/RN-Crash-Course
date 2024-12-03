@@ -57,7 +57,7 @@ const Home = () => {
             <SearchField />
 
             <View className={"w-full flex flex-1 pt-5 pb-8"}>
-              <Text className={"mb-3 text-xl text-gray-100 font-pmedium"}>
+              <Text className={"text-xl text-gray-100 font-pmedium"}>
                 Trending Videos
               </Text>
 
